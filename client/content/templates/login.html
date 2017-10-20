@@ -3,7 +3,55 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-sm-12">
-              LOGIN
+              <form name="loginForm" class="form-horizontal" method="post" novalidate form-autofill-fix
+                ng-submit="ctrl.submit()">
+                <p>
+                  Please fill the form fields to login.
+                </p>
+                <div class="col-sm-12">
+                  <div class="form-group" ng-class="{'has-error': (ctrl.submitted  || loginForm.username.$dirty)  && loginForm.username.$invalid}">
+            				<div class="input-group">
+            					<span class="input-group-addon"><i
+            						class="glyphicon glyphicon-user"></i></span> <input type="text"
+            						class="form-control" name="username"
+            						ng-model="ctrl.credentials.username" placeholder="Username"
+            						required />
+            				</div>
+            				<div class="error"
+            					ng-show="(ctrl.submitted  || loginForm.username.$dirty)  && loginForm.username.$invalid">
+            					<span class="help-block" ng-show="loginForm.username.$error.required">'Username'
+            						is mandatory</p>
+            				</div>
+                  </div>
+                </div>
+
+                <div class="col-sm-12">
+                  <div class="form-group" ng-class="{'has-error': (ctrl.submitted  || loginForm.password.$dirty)  && loginForm.password.$invalid}">
+                    <div class="input-group">
+            					<span class="input-group-addon"><i
+            						class="glyphicon glyphicon-lock"></i></span> <input type="password"
+            						class="form-control" name="password"
+            						ng-model="ctrl.credentials.password" placeholder="Password" required />
+            				</div>
+            				<div class="error"
+            					ng-show="(ctrl.submitted  || loginForm.password.$dirty)  && loginForm.password.$invalid">
+            					<span class="help-block" ng-show="loginForm.password.$error.required">'Password'
+            						is mandatory</p>
+            				</div>
+                  </div>
+                </div>
+
+        				<div style="margin-top: 10px" class="form-group">
+        					<div class="col-sm-12 controls">
+        						<input type="submit" id="btn-login" class="btn btn-success"
+        							value="Login" />
+        					</div>
+
+        				</div>
+        				<span ng-show="error" class="help-block">The password you entered is incorrect.
+        				 Please try again (make sure your caps lock is off).</p>
+
+        			</form>
             </div>
         </div>
     </div>

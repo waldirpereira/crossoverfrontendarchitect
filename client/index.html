@@ -10,22 +10,26 @@
 	<script src="scripts/vendor/all.min.js"></script>
 
 	<script src="scripts/app/todo.module.js"></script>
+	<script src="scripts/app/todo.auth.service.js"></script>
+	<script src="scripts/app/todo.run.js"></script>
+	<script src="scripts/app/todo.routes.js"></script>
 	<script src="scripts/app/todo.template.service.js"></script>
+	<script src="scripts/app/todo.controller.js"></script>
 
 	<script src="scripts/app/todo/todo.todo.module.js"></script>
 	<script src="scripts/app/todo/todo.todo.controller.js"></script>
+
+	<script src="scripts/app/login/todo.login.module.js"></script>
+	<script src="scripts/app/login/todo.login.controller.js"></script>
 
 	<script src="scripts/app/about/todo.about.module.js"></script>
 	<script src="scripts/app/about/todo.about.controller.js"></script>
 	<script src="scripts/app/about/todo.about.directive.js"></script>
 
-	<script src="scripts/app/login/todo.login.module.js"></script>
-	<script src="scripts/app/login/todo.login.controller.js"></script>
-
   <link rel="stylesheet" type="text/css" href="content/styles/vendor/vendor.min.css">
 	<link rel="stylesheet" type="text/css" href="content/styles/app/styles.css">
 </head>
-<body>
+<body ng-controller="MainController as ctrl">
 	<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -44,7 +48,9 @@
           <li><a href="#/contact">Contact</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#/login">Login</a></li>
+          <li ng-show="!ctrl.isLoggedIn()"><a href="#/login">Login</a></li>
+	        <li ng-show="ctrl.isLoggedIn()"><p class="navbar-text">Logged in as {{ctrl.getUsername()}}.</p></li>
+					<li ng-show="ctrl.isLoggedIn()"><a href="#" ng-click="ctrl.logoff()">Logoff</a></li>
         </ul>
       </div>
     </div>
