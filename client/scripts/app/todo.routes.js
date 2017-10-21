@@ -20,6 +20,9 @@
       .when("/tests", {
         templateUrl: "content/templates/tests.html"
       })
+      .when("/coverage", {
+        templateUrl: "content/templates/coverage.html"
+      })
       .when("/contact", {
         templateUrl: "content/templates/contact.html"
       })

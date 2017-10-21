@@ -31,6 +31,6 @@
 
         function isActive(viewLocation) {
           return viewLocation === $location.path();
-        };
+        }
     }
 })();

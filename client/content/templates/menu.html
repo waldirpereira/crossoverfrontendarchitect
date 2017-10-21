@@ -12,7 +12,13 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li ng-class="{'active': ctrl.isActive('/')}"><a href="#!/">Home</a></li>
-        <li ng-class="{'active': ctrl.isActive('/tests')}"><a href="#!/tests">Tests</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tests <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li ng-class="{'active': ctrl.isActive('/tests')}"><a href="#!/tests">Results</a></li>
+            <li ng-class="{'active': ctrl.isActive('/coverage')}"><a href="#!/coverage">Coverage</a></li>
+          </ul>
+        </li>
         <li ng-class="{'active': ctrl.isActive('/about')}"><a href="#!/about">About</a></li>
         <li ng-class="{'active': ctrl.isActive('/contact')}"><a href="#!/contact">Contact</a></li>
       </ul>

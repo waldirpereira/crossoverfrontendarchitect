@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var merge = require('merge-stream');
 var jshint = require('gulp-jshint');
 var clean = require('gulp-clean');
 var concat = require('gulp-concat');
@@ -7,22 +6,45 @@ var uglify = require('gulp-uglify');
 var gulpif = require('gulp-if');
 var cleanCss = require('gulp-clean-css');
 var runSequence = require('run-sequence');
+let karmaServer = require('karma').Server;
 
-gulp.task('clean', function () {
-    // return merge(
-    //   gulp.src('scripts/vendor')
-    //     .pipe(clean()),
-    //
-    //   gulp.src('content/styles/vendor')
-    //     .pipe(clean()),
-    //
-    //   gulp.src('tests/scripts/vendor')
-    //     .pipe(clean()),
-    //
-    //   gulp.src('tests/styles/vendor')
-    //     .pipe(clean())
-    // );
+const config = {
+  src: './src/',
+  dest: './dist/',
+  modules: './node_modules/',
+  testPublish: './tests/coverage/',
+  test: './tests/',
+  karmaConf: __dirname + '/tests/conf/'
+};
+
+gulp.task('cleanScriptsVendor', function() {
+  return gulp.src('scripts/vendor')
+    .pipe(clean());
 });
+gulp.task('cleanContentStylesVendor', function() {
+  return gulp.src('content/styles/vendor')
+    .pipe(clean());
+});
+gulp.task('cleanTestsScriptsVendor', function() {
+  return gulp.src('tests/scripts/vendor')
+    .pipe(clean());
+});
+gulp.task('cleanTestsStylesVendor', function() {
+  return gulp.src('tests/styles/vendor')
+    .pipe(clean());
+});
+gulp.task('cleanContentCoverage', function() {
+  return gulp.src('content/coverage')
+    .pipe(clean());
+});
+
+gulp.task('clean', [
+  'cleanScriptsVendor',
+  'cleanContentStylesVendor',
+  'cleanTestsScriptsVendor',
+  'cleanTestsStylesVendor',
+  'cleanContentCoverage',
+], function () {});
 
 gulp.task('jshint', function () {
     return gulp.src('scripts/app/**/*.js')
@@ -58,28 +80,54 @@ gulp.task('bundleTestsVendor', function() {
   ], 'vendor.min.js', 'tests/scripts/vendor');
 });
 
-gulp.task('bundle', ['jshint', 'bundleVendor', 'bundleTestsVendor'], function () {
+gulp.task('bundle', ['jshint', 'bundleVendor', 'bundleTestsVendor'], function () {});
 
+
+gulp.task('cleanCss', function() {
+  return gulp.src([
+    'node_modules/bootstrap/dist/css/bootstrap.min.css',
+    'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css'
+  ])
+    .pipe(cleanCss({ compatibility: 'ie8' }));
+});
+gulp.task('cleanCss', function() {
+  return gulp.src('node_modules/bootstrap/dist/css/bootstrap.min.css')
+    .pipe(cleanCss({ compatibility: 'ie8' }));
+});
+gulp.task('copyFonts', function() {
+  return gulp.src('node_modules/bootstrap/dist/fonts/*.*')
+    .pipe(gulp.dest('content/styles/fonts'));
+});
+gulp.task('copyTestsStyles', function() {
+  return gulp.src('node_modules/jasmine-core/lib/jasmine-core/jasmine.css')
+    .pipe(gulp.dest('tests/styles/vendor'));
 });
 
-gulp.task('minify-css', function () {
-  return merge(
-		merge(
-			gulp.src('node_modules/bootstrap/dist/css/bootstrap.min.css'),
-			gulp.src('node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css')
-				.pipe(cleanCss({ compatibility: 'ie8' }))
-		)
-			.pipe(concat('vendor.min.css'))
-			.pipe(gulp.dest('content/styles/vendor')),
+gulp.task('minify-css', ['copyFonts', 'copyTestsStyles', 'cleanCss'], function () {
+  return gulp.src([
+    'node_modules/bootstrap/dist/css/bootstrap.min.css',
+    'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css'
+  ])
+		.pipe(concat('vendor.min.css'))
+		.pipe(gulp.dest('content/styles/vendor'));
+});
 
-		gulp.src('node_modules/bootstrap/dist/fonts/*.*')
-			.pipe(gulp.dest('content/styles/fonts')),
 
-		gulp.src('node_modules/jasmine-core/lib/jasmine-core/jasmine.css')
-			.pipe(gulp.dest('tests/styles/vendor'))
-	);
+// Test task (run Karma)
+gulp.task('karma', function (done) {
+  return new karmaServer({
+    configFile: config.karmaConf + 'karma.conf.js',
+    singleRun: true
+  }, function() {
+    done();
+  }).start();
+});
+
+// Test task
+gulp.task('test', function(cb){
+  return runSequence('karma')
 });
 
 gulp.task("default", function (cb) {
-    return runSequence('clean', ['jshint', 'minify-css', 'bundle'], cb);
+    return runSequence('clean', ['jshint', 'minify-css', 'bundle'], 'karma', cb);
 });

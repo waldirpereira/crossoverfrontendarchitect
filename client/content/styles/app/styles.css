@@ -11,3 +11,11 @@ body {
 .tests-page .jasmine_html-reporter {
   display: block !important;
 }
+
+iframe, object, embed {
+    max-width: 100%;
+    width: 95%;
+    position: absolute;
+    height: 85%;
+    border: none;
+}

@@ -1,9 +1,5 @@
 describe('Routes tests', function () {
-  var ROUTES = {
-      // getAll: 'getAll path',
-      // get: 'get path',
-      // getTypes: 'getTypes path'
-  };
+  var ROUTES = {};
 
   beforeEach(module('todo', function ($provide) {
       $provide.constant('ROUTES', ROUTES);
@@ -52,6 +48,12 @@ describe('Routes tests', function () {
 
     it('Should load the tests page on successful load of /tests and without controller', function () {
         location.path('/tests');
+        rootScope.$digest();
+        expect(route.current.controller).toBe();
+    });
+
+    it('Should load the coverage page on successful load of /coverage and without controller', function () {
+        location.path('/coverage');
         rootScope.$digest();
         expect(route.current.controller).toBe();
     });
@@ -110,6 +112,12 @@ describe('Routes tests', function () {
 
     it('Should load the Tests page on successful load of /tests and without controller when not logged in', function () {
         location.path('/tests');
+        rootScope.$digest();
+        expect(route.current.controller).toBe();
+    });
+
+    it('Should load the Coverage page on successful load of /coverage and without controller when not logged in', function () {
+        location.path('/coverage');
         rootScope.$digest();
         expect(route.current.controller).toBe();
     });
