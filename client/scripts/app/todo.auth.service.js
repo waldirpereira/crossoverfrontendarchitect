@@ -5,7 +5,7 @@
     .factory('Auth', function(){
       var user;
 
-      return{
+      return {
         setUser : function(aUser){
           user = aUser;
         },
@@ -30,6 +30,6 @@
         logoff: function() {
           return true;
         }
-      }
-    })
+      };
+    });
 })();

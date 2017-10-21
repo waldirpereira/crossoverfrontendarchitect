@@ -15,6 +15,7 @@
 	<script src="scripts/app/todo.routes.js"></script>
 	<script src="scripts/app/todo.template.service.js"></script>
 	<script src="scripts/app/todo.controller.js"></script>
+	<script src="scripts/app/todo.menu.js"></script>
 
 	<script src="scripts/app/todo/todo.todo.module.js"></script>
 	<script src="scripts/app/todo/todo.todo.controller.js"></script>
@@ -26,35 +27,17 @@
 	<script src="scripts/app/about/todo.about.controller.js"></script>
 	<script src="scripts/app/about/todo.about.directive.js"></script>
 
+	<script src="tests/scripts/vendor/vendor.min.js"></script>
+	<script src="tests/scripts/app/todo.tests.result.directive.js"></script>
+	<script src="tests/scripts/spec/todo.routes.spec.js"></script>
+
+	<link rel="stylesheet" href="tests/styles/vendor/jasmine.css">
   <link rel="stylesheet" type="text/css" href="content/styles/vendor/vendor.min.css">
 	<link rel="stylesheet" type="text/css" href="content/styles/app/styles.css">
+
 </head>
-<body ng-controller="MainController as ctrl">
-	<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Crossover Todo List</a>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#/">Home</a></li>
-          <li><a href="#/about">About</a></li>
-          <li><a href="#/contact">Contact</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li ng-show="!ctrl.isLoggedIn()"><a href="#/login">Login</a></li>
-	        <li ng-show="ctrl.isLoggedIn()"><p class="navbar-text">Logged in as {{ctrl.getUsername()}}.</p></li>
-					<li ng-show="ctrl.isLoggedIn()"><a href="#" ng-click="ctrl.logoff()">Logoff</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+<body ng-controller="MainController as ctrl" ng-class="{'tests-page': ctrl.isActive('/tests')}">
+	<todo-menu></todo-menu>
 
   <div class="container">
 		<div ng-view></div>
@@ -68,7 +51,8 @@
                   // get: "json/generic-element.json",
                   // getTypes: "json/types.json",
                   // testingPage: "test.html",
-                  readmeFile: "README.txt"
+                  readmeFile: "README.txt",
+									menuTemplate: "content/templates/menu.html"
               });
       })();
   </script>

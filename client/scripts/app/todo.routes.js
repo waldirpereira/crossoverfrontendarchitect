@@ -17,6 +17,9 @@
         controller: "AboutController",
         controllerAs: "ctrl"
       })
+      .when("/tests", {
+        templateUrl: "content/templates/tests.html"
+      })
       .when("/contact", {
         templateUrl: "content/templates/contact.html"
       })

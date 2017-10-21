@@ -1,0 +1,26 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#!/">Crossover Todo List</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li ng-class="{'active': ctrl.isActive('/')}"><a href="#!/">Home</a></li>
+        <li ng-class="{'active': ctrl.isActive('/tests')}"><a href="#!/tests">Tests</a></li>
+        <li ng-class="{'active': ctrl.isActive('/about')}"><a href="#!/about">About</a></li>
+        <li ng-class="{'active': ctrl.isActive('/contact')}"><a href="#!/contact">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-show="!ctrl.isLoggedIn()" ng-class="{'active': ctrl.isActive('/login')}"><a href="#!/login">Login</a></li>
+        <li ng-show="ctrl.isLoggedIn()"><p class="navbar-text">Logged in as {{ctrl.getUsername()}}.</p></li>
+        <li ng-show="ctrl.isLoggedIn()"><a href="#" ng-click="ctrl.logoff()">Logoff</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

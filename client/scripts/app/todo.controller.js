@@ -10,6 +10,7 @@
         ctrl.isLoggedIn = isLoggedIn;
         ctrl.logoff = logoff;
         ctrl.getUsername = getUsername;
+        ctrl.isActive = isActive;
 
         function isLoggedIn(){
           return Auth.isLoggedIn();
@@ -27,5 +28,9 @@
           Auth.setUser(null);
           $location.path("/");
         }
+
+        function isActive(viewLocation) {
+          return viewLocation === $location.path();
+        };
     }
 })();
