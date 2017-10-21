@@ -5,7 +5,10 @@
 
     app.run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth) {
       $rootScope.$on('$routeChangeStart', function (event) {
-        if ($location.path() === '/login' || $location.path() === '/tests')
+
+        //only /todo requires authentication
+        console.log($location.path() );
+        if ($location.path() !== '/todo')
           return;
 
         if (!Auth.isLoggedIn()) {

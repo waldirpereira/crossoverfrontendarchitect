@@ -102,10 +102,10 @@ describe('Routes tests', function () {
         expect(route.current.controller).toBe('LoginController');
     });
 
-    it('Should load the Login page on successful load of /about and with LoginController when not logged in', function () {
+    it('Should load the About page on successful load of /about and with AboutController when not logged in', function () {
         location.path('/about');
         rootScope.$digest();
-        expect(route.current.controller).toBe('LoginController');
+        expect(route.current.controller).toBe('AboutController');
     });
 
     it('Should load the Tests page on successful load of /tests and without controller when not logged in', function () {
@@ -114,10 +114,10 @@ describe('Routes tests', function () {
         expect(route.current.controller).toBe();
     });
 
-    it('Should load the Login page on successful load of /contact and with LoginController when not logged in', function () {
+    it('Should load the contact page on successful load of /contact and without controller when not logged in', function () {
         location.path('/contact');
         rootScope.$digest();
-        expect(route.current.controller).toBe('LoginController');
+        expect(route.current.controller).toBe();
     });
 
     it('Should load the Login page on successful load of /login and with LoginController when not logged in', function () {
