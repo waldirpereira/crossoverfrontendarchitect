@@ -14,6 +14,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'scripts/vendor/all.min.js',
+
       'scripts/app/todo.module.js',
       'scripts/app/todo.auth.service.js',
       'scripts/app/todo.run.js',
@@ -21,15 +22,18 @@ module.exports = function(config) {
       'scripts/app/todo.template.service.js',
       'scripts/app/todo.controller.js',
       'scripts/app/todo.menu.js',
+
       'scripts/app/todo/todo.todo.module.js',
       'scripts/app/todo/todo.todo.controller.js',
+
       'scripts/app/login/todo.login.module.js',
       'scripts/app/login/todo.login.controller.js',
+
       'scripts/app/about/todo.about.module.js',
       'scripts/app/about/todo.about.controller.js',
       'scripts/app/about/todo.about.directive.js',
-      'tests/scripts/vendor/vendor.min.js',
-      'tests/scripts/app/todo.tests.result.directive.js',
+
+      'tests/scripts/vendor/vendor-without-jasmine.min.js',
       'tests/scripts/spec/**/*.js'
     ],
 
@@ -50,19 +54,12 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['spec', 'coverage', 'html'],
+    reporters: ['spec', 'coverage'],
 
     coverageReporter: {
       type : 'lcov',
       dir : './content/coverage/',
       subdir: '.'
-    },
-
-    htmlReporter: {
-      outputFile: './tests/coverage-report.html',
-      pageTitle: 'Unit Tests',
-      groupSuites: true,
-      useCompactStyle: true
     },
 
     // web server port

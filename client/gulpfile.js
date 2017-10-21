@@ -9,11 +9,6 @@ var runSequence = require('run-sequence');
 let karmaServer = require('karma').Server;
 
 const config = {
-  src: './src/',
-  dest: './dist/',
-  modules: './node_modules/',
-  testPublish: './tests/coverage/',
-  test: './tests/',
   karmaConf: __dirname + '/tests/conf/'
 };
 
@@ -80,7 +75,13 @@ gulp.task('bundleTestsVendor', function() {
   ], 'vendor.min.js', 'tests/scripts/vendor');
 });
 
-gulp.task('bundle', ['jshint', 'bundleVendor', 'bundleTestsVendor'], function () {});
+gulp.task('bundleTestsVendorWithoutJasmine', function() {
+  makeBundleJs([
+    'node_modules/angular-mocks/angular-mocks.js'
+  ], 'vendor-without-jasmine.min.js', 'tests/scripts/vendor');
+});
+
+gulp.task('bundle', ['jshint', 'bundleVendor', 'bundleTestsVendor', 'bundleTestsVendorWithoutJasmine'], function () {});
 
 
 gulp.task('cleanCss', function() {
@@ -124,8 +125,8 @@ gulp.task('karma', function (done) {
 });
 
 // Test task
-gulp.task('test', function(cb){
-  return runSequence('karma')
+gulp.task('test', function(){
+  gulp.start('karma');
 });
 
 gulp.task("default", function (cb) {

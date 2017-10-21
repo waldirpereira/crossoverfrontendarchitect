@@ -3,6 +3,36 @@
     <div class="panel-body">
         <div class="row">
             <div class="col-sm-12">
+              <div class="title">
+                  <p>{{ctrl.title}}</p>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-12">
+                  <div>
+                    <ul>
+                      <li>
+                        I live in Rio de Janeiro.
+                      </li>
+                      <li>
+                        I work as a Technology Specialist (Full-stack developer) with .Net (C#) & AngularJS at TecGraf Institute/PUC-Rio.
+                      </li>
+                      <li>
+                        I'm also father of Bento and Caio.
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    I'll provide some links of my network profiles, so you can see much more about me.
+                  </div>
+                  <ul>
+                    <li ng-repeat="profile in ctrl.profiles">
+                      <a href="{{profile.url}}" target="_blank">{{profile.title}}</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
               Below you can read the README.txt file content:
                 <todo-about />
             </div>
