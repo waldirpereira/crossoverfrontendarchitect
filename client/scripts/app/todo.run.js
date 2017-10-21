@@ -7,7 +7,6 @@
       $rootScope.$on('$routeChangeStart', function (event) {
 
         //only /todo requires authentication
-        console.log($location.path() );
         if ($location.path() !== '/todo')
           return;
 
