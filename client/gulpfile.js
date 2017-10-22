@@ -67,6 +67,12 @@ gulp.task('bundleVendor', function () {
   ], 'all.min.js', 'scripts/vendor');
 });
 
+// DragDropTouch is with compilation error and cannot be uglyfied
+gulp.task('polyfill', function() {
+  return gulp.src('node_modules/drag-drop-touch-polyfill/DragDropTouch.js') //for drag and drop work on mobile
+    .pipe(gulp.dest('scripts/vendor'));
+});
+
 gulp.task('bundleTestsVendor', function() {
   makeBundleJs([
     'node_modules/jasmine-core/lib/jasmine-core/jasmine.js',
@@ -84,8 +90,13 @@ gulp.task('bundleTestsVendorWithoutJasmine', function() {
   ], 'vendor-without-jasmine.min.js', 'tests/scripts/vendor');
 });
 
-gulp.task('bundle', ['jshint', 'bundleVendor', 'bundleTestsVendor', 'bundleTestsVendorWithoutJasmine'], function () {});
-
+gulp.task('bundle', [
+  'jshint',
+  'bundleVendor',
+  'polyfill',
+  'bundleTestsVendor',
+  'bundleTestsVendorWithoutJasmine'
+], function () {});
 
 gulp.task('cleanCss', function() {
   return gulp.src([

@@ -29,7 +29,7 @@
           },
           false
         );
-      }
+      };
     });
 
     app.directive('droppable', function() {
@@ -90,6 +90,6 @@
             false
           );
         }
-      }
+      };
     });
 })();
