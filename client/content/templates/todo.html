@@ -2,12 +2,15 @@
   <div class="col-sm-6">
     <div class="panel panel-default">
         <div class="panel-heading panel-heading-in-progress">In Progress</div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-sm-12">
-                  AAA
-                </div>
+        <div class="panel-body panel-todo-container">
+          <div id="container-in-progress" class="col-sm-12 todo-container" droppable drop="ctrl.handleDrop" container="container">
+            <div id="{{ item.id }}" class="panel panel-default todo-item" ng-repeat="item in ctrl.items | filter: { status: 'in-progress' }"
+              draggable>
+              <div class="panel-body">
+                {{item.title}}
+              </div>
             </div>
+          </div>
         </div>
     </div>
 
@@ -15,12 +18,15 @@
   <div class="col-sm-6">
     <div class="panel panel-default">
         <div class="panel-heading panel-heading-completed">Completed</div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-sm-12">
-                  BBB
-                </div>
+        <div class="panel-body panel-todo-container">
+          <div id="container-completed" class="col-sm-12 todo-container" droppable drop="ctrl.handleDrop" container="container">
+            <div id="{{ item.id }}" class="panel panel-default todo-item" ng-repeat="item in ctrl.items | filter: { status: 'completed' }"
+              draggable>
+              <div class="panel-body">
+                {{item.title}}
+              </div>
             </div>
+          </div>
         </div>
     </div>
 
