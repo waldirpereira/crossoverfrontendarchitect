@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  describe('todoAbout directive', function() {
+  describe('menu directive', function() {
 	  var $rootScope, $compile, $scope, templateServiceMock, element, $q;
 
     beforeEach(module('todo'));
@@ -22,7 +22,7 @@
 
       spyOn(templateServiceMock, "getTemplate").and.returnValue($q.when({}));
 
-      element = angular.element("<todo-about />");
+      element = angular.element("<todo-menu />");
       $compile(element)($scope);
       $scope.$digest();
 	  }));

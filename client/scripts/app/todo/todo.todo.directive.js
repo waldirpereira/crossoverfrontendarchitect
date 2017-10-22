@@ -79,6 +79,7 @@
               var containerId = this.id;
               var item = document.getElementById(e.dataTransfer.getData('Text'));
               this.appendChild(item);
+
               // call the passed drop function
               scope.$apply(function(scope) {
                   var fn = scope.drop();
