@@ -16,6 +16,7 @@ module.exports = function(config) {
       'scripts/vendor/all.min.js',
 
       'scripts/app/todo.module.js',
+      'scripts/app/todo.consts.js',
       'scripts/app/todo.auth.service.js',
       'scripts/app/todo.run.js',
       'scripts/app/todo.routes.js',

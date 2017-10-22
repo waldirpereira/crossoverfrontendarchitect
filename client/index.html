@@ -10,6 +10,7 @@
 	<script src="scripts/vendor/all.min.js"></script>
 
 	<script src="scripts/app/todo.module.js"></script>
+	<script src="scripts/app/todo.consts.js"></script>
 	<script src="scripts/app/todo.auth.service.js"></script>
 	<script src="scripts/app/todo.run.js"></script>
 	<script src="scripts/app/todo.routes.js"></script>
@@ -45,21 +46,6 @@
   <div class="container">
 		<div ng-view></div>
   </div>
-
-	<script type="text/javascript">
-      (function () {
-          angular.module("todo")
-              .constant("ROUTES", {
-                  // getAll: "json/elements.json",
-                  auth: "http://localhost:3000/user/auth",
-                  logout: "http://localhost:3000/user/logout",
-                  // getTypes: "json/types.json",
-                  // testingPage: "test.html",
-                  readmeFile: "README.txt",
-									menuTemplate: "content/templates/menu.html"
-              });
-      })();
-  </script>
 
 </body>
 </html>
