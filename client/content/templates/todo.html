@@ -3,11 +3,12 @@
     <div class="panel panel-default">
         <div class="panel-heading panel-heading-in-progress">In Progress</div>
         <div class="panel-body panel-todo-container">
-          <div id="container-in-progress" class="col-sm-12 todo-container" droppable drop="ctrl.handleDrop" container="container">
+          <div id="notCompleted" class="col-sm-12 todo-container" droppable drop="ctrl.handleDrop" container="container">
             <todo-item item="item"
               delete="ctrl.delete"
               update="ctrl.update"
-              ng-repeat="item in ctrl.items | filter: { status: 'notCompleted' } : true | filter:search:strict"/></todo-item>
+              save="ctrl.save"
+              ng-repeat="item in ctrl.items | filter: { status: 'notCompleted' } : true | filter:search:strict track by item._id"/></todo-item>
           </div>
           <div class="row">
             <div class="col-sm-12 text-center add-todo-item">
@@ -22,8 +23,12 @@
     <div class="panel panel-default">
         <div class="panel-heading panel-heading-completed">Completed</div>
         <div class="panel-body panel-todo-container">
-          <div id="container-completed" class="col-sm-12 todo-container" droppable drop="ctrl.handleDrop" container="container">
-            <todo-item item="item" ng-repeat="item in ctrl.items | filter: { status: 'completed' } : true | filter:search:strict"/></todo-item>
+          <div id="completed" class="col-sm-12 todo-container" droppable drop="ctrl.handleDrop" container="container">
+            <todo-item item="item"
+              delete="ctrl.delete"
+              update="ctrl.update"
+              save="ctrl.save"
+              ng-repeat="item in ctrl.items | filter: { status: 'completed' } : true | filter:search:strict track by item._id"/></todo-item>
             </div>
         </div>
     </div>

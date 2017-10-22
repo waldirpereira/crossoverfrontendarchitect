@@ -1,0 +1,33 @@
+<div id='{{ $ctrl.item._id }}' class='panel panel-default' draggable
+  ng-dblclick="$ctrl.update($ctrl.item)"
+  ng-class="{'todo-item': !$ctrl.item.editMode}">
+  <div class="panel-body">
+    <div ng-show="!$ctrl.item.editMode">
+    	<div class="pull-right">
+    	  <a ng-click="$ctrl.delete($ctrl.item)"><span class="glyphicon glyphicon-remove remove" aria-hidden="true"></span></a>
+    	</div>
+    	<h4><strong>{{$ctrl.item.title}}</strong></h4>
+    	<div ng-bind-html="$ctrl.item.description"></div>
+    	<div class="pull-right">
+    	  {{$ctrl.item.author.username}}
+    	</div>
+    </div>
+    <div ng-show="$ctrl.item.editMode">
+      <div class="row">
+        <div class="col-sm-12 todo-input-row">
+          Title: <input type="text" class="form-control input-sm" ng-model="$ctrl.item.title" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 todo-input-row">
+          Description: <input type="text" class="form-control input-sm" ng-model="$ctrl.item.description" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 pull-right add-todo-item">
+          <button class="btn btn-primary" ng-click="$ctrl.save($ctrl.item);">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

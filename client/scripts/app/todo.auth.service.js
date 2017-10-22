@@ -8,7 +8,7 @@
     var user = {};
 
     function getUser() {
-      if (user.sessionId) {
+      if (user && user.sessionId) {
           return user;
       }
       var storageUser = $window.localStorage.getItem('user');
@@ -32,10 +32,10 @@
       },
       isLoggedIn : function(){
         var currentUser = getUser();
-        return currentUser.sessionId ? currentUser : false;
+        return currentUser && currentUser.sessionId ? currentUser : false;
       },
       getUsername: function(){
-        if (!user.sessionId)
+        if (!user || !user.sessionId)
           return null;
         return user.username;
       },

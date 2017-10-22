@@ -54,6 +54,9 @@ iframe, object, embed {
 .add-todo-item {
   margin-bottom: 10px;
 }
+.todo-input-row {
+  margin-bottom: 10px;
+}
 .drag {
   opacity: 0.9;
 }

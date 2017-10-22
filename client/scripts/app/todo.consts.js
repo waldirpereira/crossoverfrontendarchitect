@@ -4,8 +4,8 @@
             getAll: "http://localhost:3000/todos",
             auth: "http://localhost:3000/user/auth",
             logout: "http://localhost:3000/user/logout",
-            // getTypes: "json/types.json",
-            // testingPage: "test.html",
+            update: "http://localhost:3000/todo",
+            delete: "http://localhost:3000/todo",
             readmeFile: "README.txt",
             menuTemplate: "content/templates/menu.html"
         });
