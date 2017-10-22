@@ -5,10 +5,10 @@
     .factory('Auth', ['$window', '$http', '$httpParamSerializer', 'ROUTES', "md5", AuthFactory]);
 
   function AuthFactory($window, $http, $httpParamSerializer, ROUTES, md5){
-    var user;
+    var user = {};
 
     function getUser() {
-      if (user) {
+      if (user.sessionId) {
           return user;
       }
       var storageUser = $window.localStorage.getItem('user');
@@ -23,16 +23,19 @@
     }
 
     return {
+      getUser: function() {
+        return getUser();
+      },
       setUser : function(aUser){
         user = aUser;
         $window.localStorage.setItem('user', JSON.stringify(user));
       },
       isLoggedIn : function(){
         var currentUser = getUser();
-        return currentUser ? currentUser : false;
+        return currentUser.sessionId ? currentUser : false;
       },
       getUsername: function(){
-        if (!user)
+        if (!user.sessionId)
           return null;
         return user.username;
       },
@@ -57,10 +60,12 @@
       logout: function() {
         return $http.get(ROUTES.logout + '?sessionId=' + user.sessionId)
           .then(function(response) {
-            if (response.data && response.data.status && response.data.status === 'success')
-              $window.localStorage.removeItem('user');
+            $window.localStorage.removeItem('user');
             return response.data;
-          }, returnDataFromXhr);
+          }, function (response) {
+            $window.localStorage.removeItem('user');
+            return response.data;
+          });
       }
     };
   }

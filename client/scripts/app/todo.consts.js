@@ -1,7 +1,7 @@
 (function () {
     angular.module("todo")
         .constant("ROUTES", {
-            // getAll: "json/elements.json",
+            getAll: "http://localhost:3000/todos",
             auth: "http://localhost:3000/user/auth",
             logout: "http://localhost:3000/user/logout",
             // getTypes: "json/types.json",

@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">87.5% </span>
+        <span class="strong">55% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>7/8</span>
+        <span class='fraction'>11/20</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">66.67% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/3</span>
+        <span class='fraction'>3/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">87.5% </span>
+        <span class="strong">55% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>7/8</span>
+        <span class='fraction'>11/20</span>
       </div>
     </div>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -68,7 +68,30 @@
 23
 24
 25
-26</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
@@ -78,13 +101,36 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -98,24 +144,47 @@
 &nbsp;
     var app = angular.module("todo");
 &nbsp;
-    app.controller("TodoController", ["$location", TodoController]);
+    app.controller("TodoController", ["$window", "$location", "Auth", "Todo", TodoController]);
 &nbsp;
-    function TodoController($location) {
+    function TodoController($window, $location, Auth, Todo) {
       var ctrl = this;
 &nbsp;
-      ctrl.items = [
-        {id: 1, title: 'aaa', status: 'in-progress'},
-        {id: 2, title: 'bbb', status: 'in-progress'},
-        {id: 3, title: 'ccc', status: 'in-progress'},
-        {id: 4, title: 'ddd', status: 'in-progress'},
-        {id: 5, title: 'xxx', status: 'completed'},
-        {id: 6, title: 'yyy', status: 'completed'},
-        {id: 7, title: 'zzz', status: 'completed'}
-      ];
+      // ctrl.items = [
+      //   {id: 1, title: 'aaa', status: 'in-progress'},
+      //   {id: 2, title: 'bbb', status: 'in-progress'},
+      //   {id: 3, title: 'ccc', status: 'in-progress'},
+      //   {id: 4, title: 'ddd', status: 'in-progress'},
+      //   {id: 5, title: 'xxx', status: 'completed'},
+      //   {id: 6, title: 'yyy', status: 'completed'},
+      //   {id: 7, title: 'zzz', status: 'completed'}
+      // ];
 &nbsp;
-      ctrl.handleDrop = <span class="fstat-no" title="function not covered" >function(id, containerSelectorId) {</span>
+      ctrl.handleDrop = handleDrop;
+&nbsp;
+      init();
+&nbsp;
+      function init() {
+        var user = Auth.getUser();
+        Todo.getAll(user.sessionId)
+          .then(<span class="fstat-no" title="function not covered" >function(data) {</span>
+<span class="cstat-no" title="statement not covered" >            if (data &amp;&amp; data.status === 'error') {</span>
+<span class="cstat-no" title="statement not covered" >              Auth.logout();</span>
+              //$window.localStorage.removeItem('user');
+<span class="cstat-no" title="statement not covered" >              $location('/');</span>
+<span class="cstat-no" title="statement not covered" >              return;</span>
+            }
+<span class="cstat-no" title="statement not covered" >            ctrl.items = data.data;</span>
+          })
+          .catch(<span class="fstat-no" title="function not covered" >function(data) {</span>
+<span class="cstat-no" title="statement not covered" >            Auth.logout();</span>
+<span class="cstat-no" title="statement not covered" >            $location.path('/');</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
+          });
+      }
+&nbsp;
+<span class="fstat-no" title="function not covered" >      function handleDrop(id, containerSelectorId) {</span>
 <span class="cstat-no" title="statement not covered" >        console.log('Item ' + id + ' dropped on ' + containerSelectorId);</span>
-      };
+      }
     }
 })();
 &nbsp;</pre></td></tr>
@@ -124,7 +193,7 @@
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Oct 22 2017 12:00:57 GMT-0200 (Horário brasileiro de verão)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Oct 22 2017 12:33:52 GMT-0200 (Horário brasileiro de verão)
 </div>
 </div>
 <script src="../../prettify.js"></script>

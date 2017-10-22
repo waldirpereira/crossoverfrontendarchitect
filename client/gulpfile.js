@@ -62,6 +62,7 @@ gulp.task('bundleVendor', function () {
     'node_modules/angular/angular.min.js',
     'node_modules/angular-route/angular-route.min.js',
     'node_modules/angular-animate/angular-animate.min.js',
+    'node_modules/angular-sanitize/angular-sanitize.min.js',
     'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
     'node_modules/angular-md5/angular-md5.min.js'
   ], 'all.min.js', 'scripts/vendor');

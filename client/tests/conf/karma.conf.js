@@ -25,8 +25,10 @@ module.exports = function(config) {
       'scripts/app/todo.menu.js',
 
       'scripts/app/todo/todo.todo.module.js',
+      'scripts/app/todo/todo.todo.service.js',
       'scripts/app/todo/todo.todo.controller.js',
       'scripts/app/todo/todo.todo.directive.js',
+      'scripts/app/todo/todo.todo.component.js',
 
       'scripts/app/login/todo.login.module.js',
       'scripts/app/login/todo.login.controller.js',

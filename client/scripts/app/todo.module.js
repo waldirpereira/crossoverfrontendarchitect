@@ -1,5 +1,5 @@
 (function () {
     "use strict";
 
-    angular.module("todo", ["ngRoute", "angular-md5"]);
+    angular.module("todo", ["ngRoute", "angular-md5", "ngSanitize"]);
 })();

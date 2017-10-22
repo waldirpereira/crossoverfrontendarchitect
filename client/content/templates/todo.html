@@ -4,11 +4,14 @@
         <div class="panel-heading panel-heading-in-progress">In Progress</div>
         <div class="panel-body panel-todo-container">
           <div id="container-in-progress" class="col-sm-12 todo-container" droppable drop="ctrl.handleDrop" container="container">
-            <div id="{{ item.id }}" class="panel panel-default todo-item" ng-repeat="item in ctrl.items | filter: { status: 'in-progress' }"
-              draggable>
-              <div class="panel-body">
-                {{item.title}}
-              </div>
+            <todo-item item="item"
+              delete="ctrl.delete"
+              update="ctrl.update"
+              ng-repeat="item in ctrl.items | filter: { status: 'notCompleted' } : true | filter:search:strict"/></todo-item>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 text-center add-todo-item">
+              <button class="btn btn-primary" ng-click="ctrl.add();">Add new item</button>
             </div>
           </div>
         </div>
@@ -20,15 +23,9 @@
         <div class="panel-heading panel-heading-completed">Completed</div>
         <div class="panel-body panel-todo-container">
           <div id="container-completed" class="col-sm-12 todo-container" droppable drop="ctrl.handleDrop" container="container">
-            <div id="{{ item.id }}" class="panel panel-default todo-item" ng-repeat="item in ctrl.items | filter: { status: 'completed' }"
-              draggable>
-              <div class="panel-body">
-                {{item.title}}
-              </div>
+            <todo-item item="item" ng-repeat="item in ctrl.items | filter: { status: 'completed' } : true | filter:search:strict"/></todo-item>
             </div>
-          </div>
         </div>
     </div>
-
   </div>
 </div>

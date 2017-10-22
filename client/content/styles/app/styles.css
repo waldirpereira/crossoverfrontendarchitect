@@ -40,7 +40,6 @@ iframe, object, embed {
 .todo-container {
   min-height: 50px;
 }
-
 .todo-item {
   cursor: move;
   margin-bottom: 10px !important;
@@ -48,6 +47,12 @@ iframe, object, embed {
 }
 .todo-item:first-child {
   margin-top: 10px;
+}
+.todo-item .remove {
+  cursor: pointer !important;
+}
+.add-todo-item {
+  margin-bottom: 10px;
 }
 .drag {
   opacity: 0.9;
