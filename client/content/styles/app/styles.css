@@ -19,3 +19,16 @@ iframe, object, embed {
     height: 85%;
     border: none;
 }
+
+/*For Todo's panels heading*/
+.panel > .panel-heading-in-progress {
+  background: rgb(255, 187, 51);
+  border: rgb(255, 187, 51);
+  color: #fff;
+}
+
+.panel > .panel-heading-completed {
+  background: rgb(0, 200, 81);
+  border: rgb(0, 200, 81);
+  color: #fff;
+}

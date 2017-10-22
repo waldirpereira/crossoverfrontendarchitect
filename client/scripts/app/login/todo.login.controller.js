@@ -8,12 +8,14 @@
         var ctrl = this;
 
         ctrl.submitted = false;
+        ctrl.error = false;
         ctrl.credentials = {};
 
         ctrl.submit = submit;
         ctrl.login = login;
 
         function submit() {
+          ctrl.error = false;
           ctrl.submitted = true;
       		if (!$scope.loginForm.$invalid) {
       			ctrl.login();

@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">41.67% </span>
+        <span class="strong">73.08% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>10/24</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
-        <span class="quiet">Branches</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>19/26</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">33.33% </span>
-        <span class="quiet">Functions</span>
+        <span class="quiet">Branches</span>
         <span class='fraction'>2/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">41.67% </span>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">73.08% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>10/24</span>
+        <span class='fraction'>19/26</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -91,35 +91,39 @@
 46
 47
 48
-49</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+49
+50
+51</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -149,25 +153,27 @@
         var ctrl = this;
 &nbsp;
         ctrl.submitted = false;
+        ctrl.error = false;
         ctrl.credentials = {};
 &nbsp;
         ctrl.submit = submit;
         ctrl.login = login;
 &nbsp;
-<span class="fstat-no" title="function not covered" >        function submit() {</span>
-<span class="cstat-no" title="statement not covered" >          ctrl.submitted = true;</span>
-<span class="cstat-no" title="statement not covered" >      		if (!$scope.loginForm.$invalid) {</span>
-<span class="cstat-no" title="statement not covered" >      			ctrl.login();</span>
+        function submit() {
+          ctrl.error = false;
+          ctrl.submitted = true;
+      		if (!$scope.loginForm.$invalid) {
+      			ctrl.login();
       		} else {
-<span class="cstat-no" title="statement not covered" >      			ctrl.error = true;</span>
-<span class="cstat-no" title="statement not covered" >      			return;</span>
+      			ctrl.error = true;
+      			return;
       		}
         }
 &nbsp;
-<span class="fstat-no" title="function not covered" >        function login() {</span>
-<span class="cstat-no" title="statement not covered" >          ctrl.error = false;</span>
+        function login() {
+          ctrl.error = false;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >          Auth.login(ctrl.credentials)</span>
+          Auth.login(ctrl.credentials)
             .then(<span class="fstat-no" title="function not covered" >function(data) {</span>
 <span class="cstat-no" title="statement not covered" >              if (!data.status || data.status !== 'success') {</span>
 <span class="cstat-no" title="statement not covered" >          			ctrl.error = true;</span>
@@ -193,7 +199,7 @@
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Oct 21 2017 23:22:57 GMT-0200 (Horário brasileiro de verão)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Oct 22 2017 01:09:55 GMT-0200 (Horário brasileiro de verão)
 </div>
 </div>
 <script src="../../prettify.js"></script>
