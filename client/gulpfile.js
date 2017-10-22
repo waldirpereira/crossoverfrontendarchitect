@@ -62,7 +62,8 @@ gulp.task('bundleVendor', function () {
     'node_modules/angular/angular.min.js',
     'node_modules/angular-route/angular-route.min.js',
     'node_modules/angular-animate/angular-animate.min.js',
-    'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js'
+    'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
+    'node_modules/angular-md5/angular-md5.min.js'
   ], 'all.min.js', 'scripts/vendor');
 });
 
@@ -71,13 +72,15 @@ gulp.task('bundleTestsVendor', function() {
     'node_modules/jasmine-core/lib/jasmine-core/jasmine.js',
     'node_modules/jasmine-core/lib/jasmine-core/jasmine-html.js',
     'node_modules/jasmine-core/lib/jasmine-core/boot.js',
-    'node_modules/angular-mocks/angular-mocks.js'
+    'node_modules/angular-mocks/angular-mocks.js',
+    'node_modules/angular-md5/angular-md5.min.js'
   ], 'vendor.min.js', 'tests/scripts/vendor');
 });
 
 gulp.task('bundleTestsVendorWithoutJasmine', function() {
   makeBundleJs([
-    'node_modules/angular-mocks/angular-mocks.js'
+    'node_modules/angular-mocks/angular-mocks.js',
+    'node_modules/angular-md5/angular-md5.min.js'
   ], 'vendor-without-jasmine.min.js', 'tests/scripts/vendor');
 });
 

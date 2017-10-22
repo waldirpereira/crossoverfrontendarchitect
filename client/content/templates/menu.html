@@ -25,7 +25,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li ng-show="!ctrl.isLoggedIn()" ng-class="{'active': ctrl.isActive('/login')}"><a href="#!/login">Login</a></li>
         <li ng-show="ctrl.isLoggedIn()"><p class="navbar-text">Logged in as {{ctrl.getUsername()}}.</p></li>
-        <li ng-show="ctrl.isLoggedIn()"><a href="#" ng-click="ctrl.logoff()">Logoff</a></li>
+        <li ng-show="ctrl.isLoggedIn()"><a href="#" ng-click="ctrl.logout()">Logout</a></li>
       </ul>
     </div>
   </div>

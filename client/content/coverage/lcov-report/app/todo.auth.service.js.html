@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">30.77% </span>
+        <span class="strong">21.05% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/13</span>
+        <span class='fraction'>4/19</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">28.57% </span>
+        <span class="strong">11.11% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/7</span>
+        <span class='fraction'>1/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">30.77% </span>
+        <span class="strong">21.05% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>4/13</span>
+        <span class='fraction'>4/19</span>
       </div>
     </div>
   </div>
@@ -78,14 +78,31 @@
 33
 34
 35
-36</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -99,54 +116,82 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">(function () {
   "use strict";
 &nbsp;
   angular.module("todo")
-    .factory('Auth', function(){
-      var user;
+    .factory('Auth', ['$http', '$httpParamSerializer', 'ROUTES', "md5", AuthFactory]);
 &nbsp;
-      return {
-        setUser : <span class="fstat-no" title="function not covered" >function(aUser){</span>
-<span class="cstat-no" title="statement not covered" >          user = aUser;</span>
-        },
-        isLoggedIn : <span class="fstat-no" title="function not covered" >function(){</span>
-<span class="cstat-no" title="statement not covered" >          return(user)? user : false;</span>
-        },
-        getUsername: <span class="fstat-no" title="function not covered" >function(){</span>
-<span class="cstat-no" title="statement not covered" >          if (!user)</span>
-<span class="cstat-no" title="statement not covered" >            return null;</span>
-<span class="cstat-no" title="statement not covered" >          return user.username;</span>
-        },
-        login: <span class="fstat-no" title="function not covered" >function(credentials) {</span>
-<span class="cstat-no" title="statement not covered" >          if (credentials.username !== 'test')</span>
-<span class="cstat-no" title="statement not covered" >            return {};</span>
+<span class="fstat-no" title="function not covered" >  function AuthFactory($http, $httpParamSerializer, ROUTES, md5){</span>
+<span class="cstat-no" title="statement not covered" >    var user;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >          return {</span>
-            status: 'success',
-            username: 'test',
-            sessionId: '123asd123asd123asd'
-          };
-        },
-        logoff: <span class="fstat-no" title="function not covered" >function() {</span>
-<span class="cstat-no" title="statement not covered" >          return true;</span>
-        }
-      };
-    });
+<span class="cstat-no" title="statement not covered" >    return {</span>
+      setUser : <span class="fstat-no" title="function not covered" >function(aUser){</span>
+<span class="cstat-no" title="statement not covered" >        user = aUser;</span>
+      },
+      isLoggedIn : <span class="fstat-no" title="function not covered" >function(){</span>
+<span class="cstat-no" title="statement not covered" >        return(user)? user : false;</span>
+      },
+      getUsername: <span class="fstat-no" title="function not covered" >function(){</span>
+<span class="cstat-no" title="statement not covered" >        if (!user)</span>
+<span class="cstat-no" title="statement not covered" >          return null;</span>
+<span class="cstat-no" title="statement not covered" >        return user.username;</span>
+      },
+      login: <span class="fstat-no" title="function not covered" >function(credentials) {</span>
+<span class="cstat-no" title="statement not covered" >        var credentialsWithMd5 = {</span>
+          username: credentials.username,
+          password: md5.createHash(credentials.password)
+        };
+<span class="cstat-no" title="statement not covered" >        return $http({</span>
+            method: 'POST',
+            url: ROUTES.auth,
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            transformRequest: <span class="fstat-no" title="function not covered" >function(obj) {</span>
+<span class="cstat-no" title="statement not covered" >                var str = [];</span>
+<span class="cstat-no" title="statement not covered" >                for(var p in obj)</span>
+<span class="cstat-no" title="statement not covered" >                str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));</span>
+<span class="cstat-no" title="statement not covered" >                return str.join("&amp;");</span>
+            },
+            data: credentialsWithMd5
+        }).then(returnDataFromXhr, returnDataFromXhr);
+      },
+      logout: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >        return $http.get(ROUTES.logout + '?sessionId=' + user.sessionId)</span>
+          .then(returnDataFromXhr, returnDataFromXhr);
+      }
+    };
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function returnDataFromXhr(response) {</span>
+<span class="cstat-no" title="statement not covered" >    return response.data;</span>
+  }
 })();
 &nbsp;</pre></td></tr>
 </table></pre>
@@ -154,7 +199,7 @@
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Oct 21 2017 16:27:05 GMT-0200 (Horário brasileiro de verão)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Oct 21 2017 23:06:39 GMT-0200 (Horário brasileiro de verão)
 </div>
 </div>
 <script src="../prettify.js"></script>

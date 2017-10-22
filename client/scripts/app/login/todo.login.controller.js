@@ -26,17 +26,23 @@
         function login() {
           ctrl.error = false;
 
-          var authResponse = Auth.login(ctrl.credentials);
+          Auth.login(ctrl.credentials)
+            .then(function(data) {
+              if (!data.status || data.status !== 'success') {
+          			ctrl.error = true;
+                return;
+              }
 
-          if (!authResponse.status || authResponse.status !== 'success') {
-      			ctrl.error = true;
-            return;
-          }
-
-          var user = { username: authResponse.username, sessionId: authResponse.sessionId };
-          Auth.setUser(user);
-
-          $location.path("/todo");
+              var user = {
+                username: data.username,
+                sessionId: data.sessionId
+              };
+              Auth.setUser(user);
+              $location.path("/todo");
+            })
+            .catch(function(data){
+              ctrl.error = true;
+            });
         }
     }
 })();

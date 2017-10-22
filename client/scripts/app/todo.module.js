@@ -1,5 +1,5 @@
 (function () {
     "use strict";
 
-    angular.module("todo", ["ngRoute"]);
+    angular.module("todo", ["ngRoute", "angular-md5"]);
 })();

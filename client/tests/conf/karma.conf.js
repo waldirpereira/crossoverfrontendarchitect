@@ -20,7 +20,7 @@ module.exports = function(config) {
       'scripts/app/todo.run.js',
       'scripts/app/todo.routes.js',
       'scripts/app/todo.template.service.js',
-      'scripts/app/todo.controller.js',
+      'scripts/app/todo.main.controller.js',
       'scripts/app/todo.menu.js',
 
       'scripts/app/todo/todo.todo.module.js',

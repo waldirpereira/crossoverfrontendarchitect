@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">43.48% </span>
+        <span class="strong">20.83% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>10/23</span>
+        <span class='fraction'>5/24</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">16.67% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/4</span>
+        <span class='fraction'>1/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">43.48% </span>
+        <span class="strong">20.83% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>10/23</span>
+        <span class='fraction'>5/24</span>
       </div>
     </div>
   </div>
@@ -85,32 +85,38 @@
 40
 41
 42
-43</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+43
+44
+45
+46
+47
+48
+49</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -121,9 +127,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -133,14 +145,14 @@
     angular.module("todo")
         .controller("LoginController", ["$scope", "$location", "Auth", LoginController]);
 &nbsp;
-    function LoginController($scope, $location, Auth) {
-        var ctrl = this;
+<span class="fstat-no" title="function not covered" >    function LoginController($scope, $location, Auth) {</span>
+<span class="cstat-no" title="statement not covered" >        var ctrl = this;</span>
 &nbsp;
-        ctrl.submitted = false;
-        ctrl.credentials = {};
+<span class="cstat-no" title="statement not covered" >        ctrl.submitted = false;</span>
+<span class="cstat-no" title="statement not covered" >        ctrl.credentials = {};</span>
 &nbsp;
-        ctrl.submit = submit;
-        ctrl.login = login;
+<span class="cstat-no" title="statement not covered" >        ctrl.submit = submit;</span>
+<span class="cstat-no" title="statement not covered" >        ctrl.login = login;</span>
 &nbsp;
 <span class="fstat-no" title="function not covered" >        function submit() {</span>
 <span class="cstat-no" title="statement not covered" >          ctrl.submitted = true;</span>
@@ -155,17 +167,23 @@
 <span class="fstat-no" title="function not covered" >        function login() {</span>
 <span class="cstat-no" title="statement not covered" >          ctrl.error = false;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >          var authResponse = Auth.login(ctrl.credentials);</span>
+<span class="cstat-no" title="statement not covered" >          Auth.login(ctrl.credentials)</span>
+            .then(<span class="fstat-no" title="function not covered" >function(data) {</span>
+<span class="cstat-no" title="statement not covered" >              if (!data.status || data.status !== 'success') {</span>
+<span class="cstat-no" title="statement not covered" >          			ctrl.error = true;</span>
+<span class="cstat-no" title="statement not covered" >                return;</span>
+              }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >          if (!authResponse.status || authResponse.status !== 'success') {</span>
-<span class="cstat-no" title="statement not covered" >      			ctrl.error = true;</span>
-<span class="cstat-no" title="statement not covered" >            return;</span>
-          }
-&nbsp;
-<span class="cstat-no" title="statement not covered" >          var user = { username: authResponse.username, sessionId: authResponse.sessionId };</span>
-<span class="cstat-no" title="statement not covered" >          Auth.setUser(user);</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >          $location.path("/todo");</span>
+<span class="cstat-no" title="statement not covered" >              var user = {</span>
+                username: data.username,
+                sessionId: data.sessionId
+              };
+<span class="cstat-no" title="statement not covered" >              Auth.setUser(user);</span>
+<span class="cstat-no" title="statement not covered" >              $location.path("/todo");</span>
+            })
+            .catch(<span class="fstat-no" title="function not covered" >function(data){</span>
+<span class="cstat-no" title="statement not covered" >              ctrl.error = true;</span>
+            });
         }
     }
 })();
@@ -175,7 +193,7 @@
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Oct 21 2017 16:27:05 GMT-0200 (Horário brasileiro de verão)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Oct 21 2017 23:06:39 GMT-0200 (Horário brasileiro de verão)
 </div>
 </div>
 <script src="../../prettify.js"></script>

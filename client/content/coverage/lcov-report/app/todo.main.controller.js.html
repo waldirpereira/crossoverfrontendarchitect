@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for app\todo.controller.js</title>
+    <title>Code coverage report for app\todo.main.controller.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -16,32 +16,32 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../index.html">all files</a> / <a href="index.html">app/</a> todo.controller.js
+      <a href="../index.html">all files</a> / <a href="index.html">app/</a> todo.main.controller.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">60% </span>
+        <span class="strong">33.33% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>12/20</span>
+        <span class='fraction'>7/21</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>0/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">12.5% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>1/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">33.33% </span>
-        <span class="quiet">Functions</span>
-        <span class='fraction'>2/6</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">60% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>12/20</span>
+        <span class='fraction'>7/21</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -79,19 +79,23 @@
 34
 35
 36
-37</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+37
+38
+39
+40
+41</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -108,6 +112,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
@@ -121,13 +129,13 @@
     angular.module("todo")
         .controller("MainController", ["$location", "Auth", MainController]);
 &nbsp;
-    function MainController($location, Auth) {
-        var ctrl = this;
+<span class="fstat-no" title="function not covered" >    function MainController($location, Auth) {</span>
+<span class="cstat-no" title="statement not covered" >        var ctrl = this;</span>
 &nbsp;
-        ctrl.isLoggedIn = isLoggedIn;
-        ctrl.logoff = logoff;
-        ctrl.getUsername = getUsername;
-        ctrl.isActive = isActive;
+<span class="cstat-no" title="statement not covered" >        ctrl.isLoggedIn = isLoggedIn;</span>
+<span class="cstat-no" title="statement not covered" >        ctrl.logout = logout;</span>
+<span class="cstat-no" title="statement not covered" >        ctrl.getUsername = getUsername;</span>
+<span class="cstat-no" title="statement not covered" >        ctrl.isActive = isActive;</span>
 &nbsp;
 <span class="fstat-no" title="function not covered" >        function isLoggedIn(){</span>
 <span class="cstat-no" title="statement not covered" >          return Auth.isLoggedIn();</span>
@@ -136,14 +144,18 @@
 <span class="cstat-no" title="statement not covered" >          return Auth.getUsername();</span>
         }
 &nbsp;
-<span class="fstat-no" title="function not covered" >        function logoff() {</span>
-<span class="cstat-no" title="statement not covered" >          var authResponse = Auth.logoff();</span>
+<span class="fstat-no" title="function not covered" >        function logout() {</span>
+<span class="cstat-no" title="statement not covered" >          Auth.logout()</span>
+            .then(<span class="fstat-no" title="function not covered" >function(data){</span>
+<span class="cstat-no" title="statement not covered" >              if (!data.status || data.status !== 'success')</span>
+<span class="cstat-no" title="statement not covered" >                return;</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >          if (!authResponse)</span>
-<span class="cstat-no" title="statement not covered" >            return;</span>
-&nbsp;
-<span class="cstat-no" title="statement not covered" >          Auth.setUser(null);</span>
-<span class="cstat-no" title="statement not covered" >          $location.path("/");</span>
+<span class="cstat-no" title="statement not covered" >              Auth.setUser(null);</span>
+<span class="cstat-no" title="statement not covered" >              $location.path("/");</span>
+            })
+            .catch(<span class="fstat-no" title="function not covered" >function(){</span>
+<span class="cstat-no" title="statement not covered" >              console.log('Logout error!');</span>
+            });
         }
 &nbsp;
 <span class="fstat-no" title="function not covered" >        function isActive(viewLocation) {</span>
@@ -157,7 +169,7 @@
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Oct 21 2017 16:27:05 GMT-0200 (Horário brasileiro de verão)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Oct 21 2017 23:06:39 GMT-0200 (Horário brasileiro de verão)
 </div>
 </div>
 <script src="../prettify.js"></script>

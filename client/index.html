@@ -14,7 +14,7 @@
 	<script src="scripts/app/todo.run.js"></script>
 	<script src="scripts/app/todo.routes.js"></script>
 	<script src="scripts/app/todo.template.service.js"></script>
-	<script src="scripts/app/todo.controller.js"></script>
+	<script src="scripts/app/todo.main.controller.js"></script>
 	<script src="scripts/app/todo.menu.js"></script>
 
 	<script src="scripts/app/todo/todo.todo.module.js"></script>
@@ -51,7 +51,8 @@
           angular.module("todo")
               .constant("ROUTES", {
                   // getAll: "json/elements.json",
-                  // get: "json/generic-element.json",
+                  auth: "http://localhost:3000/user/auth",
+                  logout: "http://localhost:3000/user/logout",
                   // getTypes: "json/types.json",
                   // testingPage: "test.html",
                   readmeFile: "README.txt",

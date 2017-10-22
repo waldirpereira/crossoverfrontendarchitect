@@ -8,7 +8,7 @@
         var ctrl = this;
 
         ctrl.isLoggedIn = isLoggedIn;
-        ctrl.logoff = logoff;
+        ctrl.logout = logout;
         ctrl.getUsername = getUsername;
         ctrl.isActive = isActive;
 
@@ -19,14 +19,18 @@
           return Auth.getUsername();
         }
 
-        function logoff() {
-          var authResponse = Auth.logoff();
+        function logout() {
+          Auth.logout()
+            .then(function(data){
+              if (!data.status || data.status !== 'success')
+                return;
 
-          if (!authResponse)
-            return;
-
-          Auth.setUser(null);
-          $location.path("/");
+              Auth.setUser(null);
+              $location.path("/");
+            })
+            .catch(function(){
+              console.log('Logout error!');
+            });
         }
 
         function isActive(viewLocation) {
