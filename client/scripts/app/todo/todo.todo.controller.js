@@ -45,7 +45,7 @@
         var itemDropped = {
           _id: item._id,
           status: containerSelectorId
-        }
+        };
         ctrl.save(itemDropped, true);
       }
 
@@ -57,7 +57,7 @@
             username: currentUser.username
           },
           editMode: true
-        }
+        };
         ctrl.items.push(newItem);
       }
 
